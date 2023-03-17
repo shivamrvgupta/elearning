@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="feature">
+  {% if topics %}
+  {% for topic in topics %}
+    <div class="boxes">
+      <a href=" {% url 'video'  %} ">
+        <img src="{{ topic.label.url }}" alt="{{topic.label}}" style="width: 110px;">
+        <h2>{{ topic.name }}</h2>
+      </a>
+    </div>
+    {% endfor %}
+    {% else %}
+      <p>No Topic Available</p>
+    {% endif %}
+    
+</section>
+{% endblock %}

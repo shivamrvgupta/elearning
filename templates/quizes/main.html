@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %} 
+  <div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Start?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-body-confirm"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+            <button type="button" id="start-button" class="btn btn-success">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <H1>Quiz List</H1>
+    <hr>
+    <!-- Button trigger modal -->
+    {% for obj in object_list %}
+      <button type="button" class="btn btn-primary modal-button" data-pk="{{obj.pk}}"
+        data-quiz="{{obj.name}}"
+        data-question="{{obj.number_of_questions}}"
+        data-difficulty="{{obj.difficulty}}"
+        data-time = "{{obj.time}}"
+        data-pass="{{ obj.required_score}}"
+        data-toggle="modal" data-target="#staticBackdrop">
+        {{obj.name}}
+      </button>
+    {% endfor %}
+  
+  </div>
+{% endblock  %}
+
+{% block scripts %}
+    {% load static %}
+    <script src="{% static 'js/main.js'%}" defer></script>
+{% endblock %}

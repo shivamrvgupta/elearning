@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero-section">
+  <div class="hero-box">
+    <div class="left-box">
+      <p class="ready">Are you ready to learn?</p>
+      <h1>learn with fun <br />on <span>any schedule</span></h1>
+      <p class="left-para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
+        quae repellat. <br />
+        Suscipit amet illum itaque quibusdam nostrum voluptatum ducimus.
+        Non eum fuga dolore assumenda quisquam.
+      </p>
+      <a href="#" class="btn started">Get Started</a>
+    </div>
+    <div class="right-box">
+      <img src="{% static './img/study img2-app.jpg' %}" alt="header images" class="right-img">
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="boxes">
+    <a href=" {% url 'topics' %} ">
+      <img src=" {% static './img/topicc-logo.jpg' %} " alt="img here" style="width: 110px;">
+      <h2>EVS TOPICS</h2>
+    </a>
+  </div>
+  <div class="boxes al-shadow">
+    <a href=" {% url 'home' %} ">
+      <img src="{% static './img/testt-logo.jpg' %}" alt="img here" style="width: 110px;">
+      <h2>Test Your Knowledge</h2>
+    </a>
+  </div>
+</section>
+{% endblock %}
